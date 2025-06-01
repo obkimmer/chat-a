@@ -1,12 +1,13 @@
 plugins {
     id("com.android.application")
     id("kotlin-android")
-    id("kotlinx-serialization")
+    id("org.jetbrains.kotlin.plugin.serialization")
 }
 
 android {
     namespace = "com.example.chatapp"
     compileSdk = 34
+    
     defaultConfig {
         applicationId = "com.example.chatapp"
         minSdk = 24
@@ -14,13 +15,20 @@ android {
         versionCode = 1
         versionName = "1.0"
     }
+    
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
     }
+    
+    kotlinOptions {
+        jvmTarget = "1.8"
+    }
+    
     buildFeatures {
         compose = true
     }
+    
     composeOptions {
         kotlinCompilerExtensionVersion = "1.5.4"
     }
